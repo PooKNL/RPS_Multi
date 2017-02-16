@@ -6,6 +6,7 @@ import subscribeToRecipesService from '../actions/recipes/subscribe'
 import Title from '../components/Title'
 import GameItem from './GameItem'
 import './GamesContainer.sass'
+import Intro from './GameIntro'
 
 export class GamesContainer extends PureComponent {
   static propTypes = {
@@ -31,6 +32,11 @@ export class GamesContainer extends PureComponent {
         </header>
 
         <main className="container">
+
+
+
+
+
           { this.props.recipes.map(this.renderRecipe.bind(this)) }
         </main>
       </div>
