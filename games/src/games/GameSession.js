@@ -1,12 +1,20 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import GameBox from '../components/GameBox'
+import Title from '../components/Title'
 
 
-export class GameSession extends Component {
+export class GameSession extends PureComponent {
 render() {
   return(
     <div>
-      <h2> GameSession</h2>
+      <div>
+        <Title content="GameSession" />
+      </div>
+      <div>
+        <GameBox />
+      </div>
+
     </div>
   )
 }

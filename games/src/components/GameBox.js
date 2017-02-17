@@ -1,15 +1,16 @@
-import React, {PureComponent} from 'react'
+import React, { Component } from 'react'
+import CardExampleWithAvatar from './RockPaperScissors'
 
-export class GameBox extends PureComponent {
+class GameBox extends Component {
 
 render() {
   return (
     <div>
-      <h1> GameBox</h1>
+      <CardExampleWithAvatar />
     </div>
   )
 }
 
 }
 
-export default (GameBox)
+export default GameBox
