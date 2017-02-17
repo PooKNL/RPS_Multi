@@ -10,30 +10,19 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const ingredientSchema = new Schema({
-  amount: { type: String, required: false },
-  name: { type: String, required: true },
-  optional: { type: Boolean, required: true, 'default': false }
-});
-
-const cookingStepSchema = new Schema({
-  cookingTime: { type: Number, required: false }, // in minutes
-  title: { type: String, required: false },
-  description: { type: String, required: true }
+const playerSchema = new Schema({
+  playerId: { type: String, required: false},
+  playerChoice: { type: String, required: false},
+  isWinner: { type: Boolean, required: false}
 });
 
 const gameSchema = new Schema({
   title: { type: String, required: true },
-  summary: { type: String, required: true },
-  photo: { type: String, required: true },
-  vegan: { type: Boolean, required: true, 'default': false },
-  vegetarian: { type: Boolean, required: true, 'default': false },
-  pescatarian: { type: Boolean, required: true, 'default': false },
-  cookingTime: { type: Number, required: false }, // in minutes
-  ingredients: [ingredientSchema],
-  cookingSteps: [cookingStepSchema],
-  likedBy: [ Schema.Types.ObjectId ],
-  authorId: { type: Schema.Types.ObjectId, ref: 'user' },
+  players:[playerSchema],
+  score: { type: Number, required: false },
+  timer: { type: Number, required: false},
+  readyToPlay: { type: Boolean, required: false},
+  inSession: { type: Boolean, required: false},
   createdAt: { type: Date, 'default': Date.now },
   updatedAt: { type: Date, 'default': Date.now }
 });
