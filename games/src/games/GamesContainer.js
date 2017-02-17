@@ -7,6 +7,7 @@ import Title from '../components/Title'
 import GameItem from './GameItem'
 import './GamesContainer.sass'
 import Intro from './GameIntro'
+import SignIn from '../users/SignIn'
 
 export class GamesContainer extends PureComponent {
   static propTypes = {
@@ -32,6 +33,7 @@ export class GamesContainer extends PureComponent {
           < Intro />
         </header>
         <main className="container">
+          < SignIn />
           { this.props.games.map(this.renderGame.bind(this)) }
         </main>
       </div>
