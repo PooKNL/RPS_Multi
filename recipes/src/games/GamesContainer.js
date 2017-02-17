@@ -26,17 +26,12 @@ export class GamesContainer extends PureComponent {
 
   render() {
     return(
-      <div className="recipes wrapper">
+      <div className="games wrapper">
         <header>
-          <Title content="All Recipes" />
+          <Title content="About the game" />
+          < Intro />
         </header>
-
         <main className="container">
-
-
-
-
-
           { this.props.recipes.map(this.renderRecipe.bind(this)) }
         </main>
       </div>
