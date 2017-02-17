@@ -1,6 +1,7 @@
 import React from 'react';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
+import './RockPaperScissors.sass'
 
 const CardExampleWithAvatar = () => (
   <Card>
@@ -10,6 +11,7 @@ const CardExampleWithAvatar = () => (
       Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
       Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
       Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+      THIS IS WHERE THE GAME WILL BE PLAYED
     </CardText>
     <CardActions>
       <FlatButton label="Action1" />
