@@ -10,17 +10,20 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const choiceSchema = new Schema({
+  gameChoice: { type: String, required: true },
+})
+
 const playerSchema = new Schema({
-  playerId: { type: String, required: false},
+  userId: { type: Schema.Types.ObjectId, ref: 'user' },
   playerChoice: { type: String, required: false},
   isWinner: { type: Boolean, required: false}
 });
 
 const gameSchema = new Schema({
-  title: { type: String, required: true },
   players:[playerSchema],
-  score: { type: Number, required: false },
-  timer: { type: Number, required: false},
+  choice:[choiceSchema],
+  winner: { type: Boolean, required: false },
   readyToPlay: { type: Boolean, required: false},
   inSession: { type: Boolean, required: false},
   createdAt: { type: Date, 'default': Date.now },
