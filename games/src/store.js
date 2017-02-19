@@ -22,6 +22,7 @@ const enhancer = compose(
 
 const store = createStore(reducer, enhancer)
 
+
 export const history = syncHistoryWithStore(baseHistory, store)
 
 export default store
