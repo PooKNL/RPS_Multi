@@ -6,7 +6,7 @@ import loading from '../loading'
 const api = new API()
 const games = api.service('games')
 
-export const CREATE_GAME = 'CREATE_GAME'
+export const GAME_CREATED = 'GAME_CREATED'
 
 export default (userId) => {
   return (dispatch) => {
