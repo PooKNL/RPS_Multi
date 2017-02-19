@@ -1,7 +1,5 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import GameBox from '../components/GameBox'
-import GameItem from './GameItem'
 import fetchGames from '../actions/games/fetch'
 import Title from '../components/Title'
 import './GameSession.sass'

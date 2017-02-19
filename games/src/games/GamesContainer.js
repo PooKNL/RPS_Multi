@@ -4,10 +4,10 @@ import { connect } from 'react-redux'
 import fetchGames from '../actions/games/fetch'
 import subscribeToGamesService from '../actions/games/subscribe'
 import Title from '../components/Title'
-import GameItem from './GameItem'
 import './GamesContainer.sass'
 import Intro from './GameIntro'
 import SignIn from '../users/SignIn'
+import GameLobby from './GameLobby'
 
 export class GamesContainer extends PureComponent {
   static propTypes = {
