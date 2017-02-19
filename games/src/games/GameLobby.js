@@ -32,11 +32,11 @@ export class GameLobby extends PureComponent {
           <RaisedButton
             label="New Game"
             primary={true}
-            onClick={this.createGame.bind(this)}/>
+            />
         </div>
         <div>
           <ul>
-            { this.props.games.map(this.renderGameItem.bind(this)) }
+            {/* { this.props.games.map(this.renderGameItem.bind(this)) } */}
           </ul>
         </div>
       </div>
