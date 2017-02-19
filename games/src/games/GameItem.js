@@ -8,7 +8,7 @@ import './GameItem.sass'
 
 
 
-class GameItem extends Component {
+export class GameItem extends PureComponent {
   joinGame() {
     this.props.onJoin(this.props.game)
   }
