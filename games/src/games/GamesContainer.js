@@ -10,20 +10,22 @@ import SignIn from '../users/SignIn'
 import GameLobby from './GameLobby'
 
 export class GamesContainer extends PureComponent {
-  static propTypes = {
-    games: PropTypes.array.isRequired,
-    fetchGames: PropTypes.func.isRequired,
-    subscribeToGamesService: PropTypes.func.isRequired,
+  constructor(props) {
+    super(props);
+    this.state = {
+      games: [
+        {
+          id: 1,
+          title: 'game one',
+        },
+        {
+          id: 2,
+          title: 'game two',
+        }
+      ]
+    };
   }
 
-  componentDidMount() {
-    this.props.fetchGames()
-    this.props.subscribeToGamesService()
-  }
-
-  renderGame(game, index) {
-    return <GameItem key={ index } { ...game } liked={ false } />
-  }
 
   render() {
     return(
@@ -34,7 +36,6 @@ export class GamesContainer extends PureComponent {
         </header>
         <main className="container">
           < SignIn />
-          { this.props.games.map(this.renderGame.bind(this)) }
         </main>
       </div>
     )

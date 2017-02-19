@@ -9,6 +9,9 @@ import './GameItem.sass'
 
 
 export class GameItem extends PureComponent {
+  constructor(title) {
+    super(title)
+  }
   joinGame() {
     this.props.onJoin(this.props.game)
   }
@@ -18,7 +21,7 @@ export class GameItem extends PureComponent {
 
     return (
       <li>
-        Game by { game.createdBy.name }
+        Game by
         <RaisedButton onClick={this.joinGame.bind(this)} label="Join game" />
       </li>
     )
