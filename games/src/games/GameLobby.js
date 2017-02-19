@@ -1,7 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
-import GameItem from '../components/GameItem'
+// import GameItem from '../components/GameItem'
 // import setupGames from '../actions/setup-games'
 
 
@@ -43,7 +43,7 @@ export class GameLobby extends PureComponent {
     )
   }
 }
-
+//
 // const mapStateToProps = (state) => {
 //   return {
 //     games: state.games,
@@ -52,4 +52,4 @@ export class GameLobby extends PureComponent {
 //   }
 // }
 
-export default connect(mapStateToProps, { setupGames })(GameLobby)
+export default (GameLobby)
