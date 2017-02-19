@@ -5,19 +5,23 @@ import GameItem from './GameItem'
 import createGameAction from '../actions/games/create'
 // import setupGames from '../actions/setup-games'
 
+const games = [
+  {
+    id: 1,
+    title: " game one",
+  }
+]
 
 export class GameLobby extends PureComponent {
-
-
   render() {
-    const { games } = this.props
     const renderGames = () => {
       return games.map((game) => {
         return (
-          <GameItem key={game.id} />
+          <GameItem key={game.id} {...game} />
         )
       })
     }
+
     return (
       <div>
         <h1>Game Lobby</h1>
@@ -30,7 +34,9 @@ export class GameLobby extends PureComponent {
             onClick={this.createGameHandler} />
         </div>
         <div>
-          {renderGames()}
+          <ul>
+            {renderGames()}
+          </ul>
         </div>
       </div>
     )

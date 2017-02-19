@@ -11,23 +11,25 @@ import GameLobby from './GameLobby'
 
 export class GamesContainer extends PureComponent {
   constructor(props) {
-    super(props);
-    this.state = {
-      games: [
-        {
-          id: 1,
-          title: 'game one',
-        },
-        {
-          id: 2,
-          title: 'game two',
-        }
-      ]
-    };
+    super()
+
+    const { id, title } = props
+      this.state = {
+        games: [
+          {
+            id: 1,
+            title: 'game one',
+          },
+          {
+            id: 2,
+            title: 'game two',
+          }
+        ]
+      };
   }
 
-
   render() {
+    var { games } = this.state;
     return(
       <div className="games wrapper">
         <header>
