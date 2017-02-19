@@ -30,7 +30,7 @@ export class GamesContainer extends PureComponent {
       <div className="games wrapper">
         <header>
           <Title content="About the game" />
-          < Intro />
+          <Intro />
         </header>
         <main className="container">
           < SignIn />

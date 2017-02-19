@@ -18,6 +18,7 @@ export class GameLobby extends PureComponent {
   }
 
   createGame(event) {
+    
     this.setState({
       title: this.refs.title.value
     })
