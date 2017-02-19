@@ -21,6 +21,7 @@ const playerSchema = new Schema({
 });
 
 const gameSchema = new Schema({
+  title: { type: String, required: true},
   players:[playerSchema],
   choice:[choiceSchema],
   winner: { type: Boolean, required: false },
