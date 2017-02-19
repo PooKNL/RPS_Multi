@@ -10,31 +10,34 @@ import GameLobby from './GameLobby'
 import SignIn from '../users/SignIn'
 
 export class GamesContainer extends PureComponent {
-  static propTypes = {
-    games: PropTypes.array.isRequired,
-    fetchGames: PropTypes.func.isRequired,
-    subscribeToGamesService: PropTypes.func.isRequired,
-  }
+  constructor(props) {
+    super()
 
-  componentDidMount() {
-    this.props.fetchGames()
-    this.props.subscribeToGamesService()
-  }
-
-  renderGame(game, index) {
-    return <GameItem key={ index } { ...game } liked={ false } />
+    const { id, title } = props
+      this.state = {
+        games: [
+          {
+            id: 1,
+            title: 'game one',
+          },
+          {
+            id: 2,
+            title: 'game two',
+          }
+        ]
+      };
   }
 
   render() {
+    var { games } = this.state;
     return(
       <div className="games wrapper">
         <header>
           <Title content=" " />
           <Intro />
         </header>
-        < SignIn />
-        <main className="container">
-          { this.props.games.map(this.renderGame.bind(this)) }
+         <main className="container">
+           <SignIn />
         </main>
       </div>
     )

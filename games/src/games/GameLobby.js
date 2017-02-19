@@ -5,26 +5,23 @@ import GameItem from './GameItem'
 import createGameAction from '../actions/games/create'
 // import setupGames from '../actions/setup-games'
 
+const games = [
+  {
+    id: 1,
+    title: " game one",
+  }
+]
 
 export class GameLobby extends PureComponent {
-  constructor(props) {
-    super()
-
-    const { title } = props
-
-    this.state = {
-      title,
-    }
-  }
-
-  createGame(event) {
-    
-    this.setState({
-      title: this.refs.title.value
-    })
-  }
-
   render() {
+    const renderGames = () => {
+      return games.map((game) => {
+        return (
+          <GameItem key={game.id} {...game} />
+        )
+      })
+    }
+
     return (
       <div>
         <h1>Game Lobby</h1>
@@ -34,11 +31,11 @@ export class GameLobby extends PureComponent {
           <RaisedButton
             label="New Game"
             primary={true}
-            onClick={this.createGame.bind(this)} />
+            onClick={this.createGameHandler} />
         </div>
         <div>
           <ul>
-            {  }
+            {renderGames()}
           </ul>
         </div>
       </div>
@@ -54,4 +51,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default (GameLobby)
+export default connect (mapStateToProps)(GameLobby)

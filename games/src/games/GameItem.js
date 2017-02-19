@@ -9,19 +9,19 @@ import './GameItem.sass'
 
 
 export class GameItem extends PureComponent {
-  joinGame() {
-    this.props.onJoin(this.props.game)
-  }
 
   render() {
-    const { game } = this.props
+    const { game } = this.props;
 
     return (
       <li>
-        Game by { game.createdBy.name }
-        <RaisedButton onClick={this.joinGame.bind(this)} label="Join game" />
+        (game title)
+        <RaisedButton label="Join game" />
       </li>
     )
   }
 }
+
+const mapStateToProps = ({ games }) => ({ games })
+
 export default GameItem
