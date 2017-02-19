@@ -6,8 +6,8 @@ import subscribeToGamesService from '../actions/games/subscribe'
 import Title from '../components/Title'
 import './GamesContainer.sass'
 import Intro from './GameIntro'
-import SignIn from '../users/SignIn'
 import GameLobby from './GameLobby'
+import SignIn from '../users/SignIn'
 
 export class GamesContainer extends PureComponent {
   constructor(props) {
@@ -33,11 +33,11 @@ export class GamesContainer extends PureComponent {
     return(
       <div className="games wrapper">
         <header>
-          <Title content="About the game" />
+          <Title content=" " />
           <Intro />
         </header>
-        <main className="container">
-          < SignIn />
+         <main className="container">
+           <SignIn />
         </main>
       </div>
     )
