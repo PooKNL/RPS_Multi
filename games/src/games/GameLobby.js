@@ -76,6 +76,7 @@ class GameLobby extends PureComponent {
           <ul>
               { this.props.games.map(this.renderGame.bind(this)) }
             </ul>
+
           </div>
 
       </div>
