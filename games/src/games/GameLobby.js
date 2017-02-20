@@ -2,58 +2,67 @@ import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
 import GameItem from './GameItem'
-import createGameAction from '../actions/games/create'
+import createGame from '../actions/games/create'
 // import setupGames from '../actions/setup-games'
 
-const games = [
-  {
-    id: 1,
-    title: " game one",
+const games = []
+
+class GameLobby extends PureComponent {
+  constructor(props) {
+    super()
+
+    const { title } = props
+
+    this.state = {
+      title
+    }
   }
-]
 
-export class GameLobby extends PureComponent {
+  updateTitle(event) {
+    this.setState({
+      title: this.refs.title.value
+    })
+  }
+
+
+  saveGame() {
+    const {
+      title
+    } = this.state
+
+    const game = {
+      title
+    }
+
+
+  }
+
+  handleClick() {
+    this.props.createGame(this.refs.title.value)
+  }
+  // createGame() {
+  //   console.log();
+  // }
+
   render() {
-    const renderGames = () => {
-      return games.map((game) => {
-        return (
-          <GameItem key={game.id} {...game} />
-        )
-      })
-    }
-
-    const handleClick = (e) => {
-      e.preventDefault();
-      console.log('The link was clicked.', e.state);
-    }
-
+    console.log(this.props)
     return (
-      <div>
-        <h1>Game Lobby</h1>
-        <div>
-          <input type="text" ref="title" className="title"
-            placeholder="Title of the game" /> <br></br>
-          <RaisedButton
-            label="New Game"
-            primary={true}
-            onClick={handleClick} />
+      <div className="create">
+        <input
+          type="text"
+          ref="title"
+          className="title"
+          placeholder="Title"
+          defaultValue={this.state.title} />
+        })}
+
+        <div className="actions">
+          <button className="primary" onClick={this.handleClick.bind(this)}>Create</button>
         </div>
-        <div>
-          <ul>
-            {renderGames()}
-          </ul>
-        </div>
+
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    games: state.games,
-    currentGame: state.currentGame,
-    currentUser: state.currentUser,
-  }
-}
-
-export default connect (mapStateToProps)(GameLobby)
+export default connect(null, { createGame })(GameLobby)

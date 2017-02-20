@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Loading from './components/Loading'
 import LoadError from './components/LoadError'
 import Navigation from './components/Navigation'
+import GamesContainer from './games/GamesContainer'
 
 // Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'

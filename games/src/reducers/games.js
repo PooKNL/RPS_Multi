@@ -1,14 +1,19 @@
 import { FETCHED_GAMES } from '../actions/games/fetch'
+import { GAME_CREATE } from '../actions/games/creategame'
 import {
   GAME_CREATED,
   GAME_UPDATED,
   GAME_REMOVED
+
 } from '../actions/games/subscribe'
 
 export default (state = [], { type, payload } = {}) => {
   switch(type) {
     case FETCHED_GAMES :
       return [].concat(payload)
+
+    case GAME_CREATE :
+      return [Object.assign({}, payload)].concat(state)
 
     case GAME_CREATED :
       const newGame = Object.assign({}, payload)
