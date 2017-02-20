@@ -22,6 +22,11 @@ export class GameLobby extends PureComponent {
       })
     }
 
+    const handleClick = (e) => {
+      e.preventDefault();
+      console.log('The link was clicked.', e.state);
+    }
+
     return (
       <div>
         <h1>Game Lobby</h1>
@@ -31,7 +36,7 @@ export class GameLobby extends PureComponent {
           <RaisedButton
             label="New Game"
             primary={true}
-            onClick={this.createGameHandler} />
+            onClick={handleClick} />
         </div>
         <div>
           <ul>
