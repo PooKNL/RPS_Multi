@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
 import GameItem from './GameItem'
 import createGame from '../actions/games/create'
+import { Router, Route, Link, IndexLink, browserHistory } from 'react-router'
 // import setupGames from '../actions/setup-games'
 
 const games = []
@@ -66,6 +67,9 @@ class GameLobby extends PureComponent {
 
         <div className="actions">
           <button className="primary" onClick={this.handleClick.bind(this)}>Create game</button>
+        </div>
+        <div>
+          <IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}} className="titanium">Go to home</IndexLink>
         </div>
 
         <div>
