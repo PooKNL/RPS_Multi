@@ -6,8 +6,8 @@ import subscribeToGamesService from '../actions/games/subscribe'
 import Title from '../components/Title'
 import './GamesContainer.sass'
 import Intro from './GameIntro'
-import GameLobby from './GameLobby'
 import SignIn from '../users/SignIn'
+
 
 export class GamesContainer extends PureComponent {
   constructor(props) {
@@ -37,8 +37,7 @@ export class GamesContainer extends PureComponent {
           <Intro />
         </header>
          <main className="container">
-           <SignIn />
-        
+            <SignIn />
         </main>
       </div>
     )
@@ -48,4 +47,6 @@ export class GamesContainer extends PureComponent {
 const mapStateToProps = ({ games }) => ({ games })
 
 export default connect(mapStateToProps, {
-  fetchGames, subscribeToGamesService})(GamesContainer)
+  fetchGames,
+  subscribeToGamesService
+})(GamesContainer)
