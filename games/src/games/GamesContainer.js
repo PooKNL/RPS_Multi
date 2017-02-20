@@ -38,6 +38,7 @@ export class GamesContainer extends PureComponent {
         </header>
          <main className="container">
            <SignIn />
+        
         </main>
       </div>
     )
@@ -47,6 +48,4 @@ export class GamesContainer extends PureComponent {
 const mapStateToProps = ({ games }) => ({ games })
 
 export default connect(mapStateToProps, {
-  fetchGames,
-  subscribeToGamesService
-})(GamesContainer)
+  fetchGames, subscribeToGamesService})(GamesContainer)

@@ -8,7 +8,7 @@ const games = api.service('games')
 
 export const GAME_CREATED = 'GAME_CREATED'
 
-export default (userId) => {
+export default (title) => {
   return (dispatch) => {
     dispatch(loading(true))
 
@@ -16,7 +16,7 @@ export default (userId) => {
     api.app.authenticate()
     .then(() => {
 
-      games.create(userId) // with what?
+      games.create({ title: title }) // with what?
 
       // then => go to reducer to change state
       .then((response) => {
