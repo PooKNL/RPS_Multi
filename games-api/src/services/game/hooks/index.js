@@ -7,6 +7,8 @@ const common = require('feathers-hooks-common');
 
 // before hook: assign authorId to the _id of the currently logged in user.
 const createGame = require('./create-game');
+const makeJoinable = require('./make-joinable');
+
 // after hook: look up the user with the matching authorId in the users service and add it as 'author'
 
 
@@ -26,11 +28,13 @@ exports.before = {
     auth.verifyToken(),
     auth.populateUser(),
     auth.restrictToAuthenticated(),
+    makeJoinable(),
   ],
   patch: [
     auth.verifyToken(),
     auth.populateUser(),
     auth.restrictToAuthenticated(),
+    makeJoinable(),
   ],
   remove: [
     auth.verifyToken(),
