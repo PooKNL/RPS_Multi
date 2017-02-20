@@ -6,8 +6,6 @@ import RaisedButton from 'material-ui/RaisedButton'
 import toggleLikeAction from '../actions/games/toggle-like'
 import './GameItem.sass'
 
-
-
 export class GameItem extends PureComponent {
 
   render() {

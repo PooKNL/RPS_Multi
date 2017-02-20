@@ -18,6 +18,10 @@ class GameLobby extends PureComponent {
     }
   }
 
+  componentDidMount() {
+  this.props.createGame()
+  }
+
   updateTitle(event) {
     this.setState({
       title: this.refs.title.value
@@ -33,9 +37,13 @@ class GameLobby extends PureComponent {
     const game = {
       title
     }
-
-
   }
+
+  renderGameItem(game, index) {
+  return (
+    <GameItem key={index} game={game} onJoin={this.joinGame.bind(this)} />
+  )
+}
 
   handleClick() {
     this.props.createGame(this.refs.title.value)
@@ -54,15 +62,30 @@ class GameLobby extends PureComponent {
           className="title"
           placeholder="Title"
           defaultValue={this.state.title} />
-        })}
+
 
         <div className="actions">
-          <button className="primary" onClick={this.handleClick.bind(this)}>Create</button>
+          <button className="primary" onClick={this.handleClick.bind(this)}>Create game</button>
         </div>
+
+        <div>
+            <h3> Available Games </h3>
+          <ul>
+            { this.renderGameItem.bind(this) }
+            </ul>
+          </div>
 
       </div>
     )
   }
 }
 
-export default connect(null, { createGame })(GameLobby)
+const mapStateToProps = (state) => {
+  return {
+    games: state.games,
+    currentGame: state.currentGame,
+    currentUser: state.currentUser
+  }
+}
+
+export default connect(mapStateToProps, { createGame })(GameLobby)
