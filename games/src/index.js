@@ -15,6 +15,7 @@ import GamesContainer from './games/GamesContainer'
 import GameLobby from './games/GameLobby'
 import SignUp from './users/SignUp'
 import SignIn from './users/SignIn'
+import GameSession from './games/GameSession'
 
 ReactDOM.render(
   <Provider store={store}>
@@ -24,6 +25,7 @@ ReactDOM.render(
         <Route path="/gamelobby" component={GameLobby} />
         <Route path="/sign-up" component={SignUp} />
         <Route path="/sign-in" component={SignIn} />
+        <Route path="/games/:gameId" component={GameSession} />
       </Route>
     </Router>
   </Provider>,
