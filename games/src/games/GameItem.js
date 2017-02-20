@@ -13,7 +13,7 @@ export class GameItem extends PureComponent {
 
     return (
       <li>
-        (game title)
+        <p> { this.props.title } </p>
         <RaisedButton label="Join game" />
       </li>
     )

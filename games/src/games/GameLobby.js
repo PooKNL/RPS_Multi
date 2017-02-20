@@ -1,8 +1,10 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
+import fetchGames from '../actions/games/fetch'
 import GameItem from './GameItem'
 import createGame from '../actions/games/create'
+import subscribeToGamesService from '../actions/games/subscribe'
 import { Router, Route, Link, IndexLink, browserHistory } from 'react-router'
 // import setupGames from '../actions/setup-games'
 
@@ -20,7 +22,9 @@ class GameLobby extends PureComponent {
   }
 
   componentDidMount() {
-  this.props.createGame()
+  this.props.fetchGames()
+  // this.props.subscribeToGamesService()
+
   }
 
   updateTitle(event) {
@@ -40,18 +44,13 @@ class GameLobby extends PureComponent {
     }
   }
 
-  renderGameItem(game, index) {
-  return (
-    <GameItem key={index} game={game} onJoin={this.joinGame.bind(this)} />
-  )
-}
+  renderGame(game, index) {
+    return <GameItem key={ index } { ...game }/>
+  }
 
   handleClick() {
     this.props.createGame(this.refs.title.value)
   }
-  // createGame() {
-  //   console.log();
-  // }
 
   render() {
     console.log(this.props)
@@ -75,7 +74,7 @@ class GameLobby extends PureComponent {
         <div>
             <h3> Available Games </h3>
           <ul>
-            { this.renderGameItem.bind(this) }
+              { this.props.games.map(this.renderGame.bind(this)) }
             </ul>
           </div>
 
@@ -92,4 +91,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { createGame })(GameLobby)
+export default connect(mapStateToProps, { createGame, fetchGames, subscribeToGamesService })(GameLobby)
