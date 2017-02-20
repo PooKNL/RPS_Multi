@@ -9,7 +9,7 @@ import './GameItem.sass'
 export class GameItem extends PureComponent {
 
   render() {
-    const { title } = this.props;
+    const { game } = this.props;
 
     return (
       <li>
