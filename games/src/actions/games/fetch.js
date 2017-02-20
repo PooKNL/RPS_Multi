@@ -17,10 +17,11 @@ export default () => {
       }
     })
     .then((response) => {
+      console.log(response, 'fetchACTIon')
       dispatch(loadSuccess())
       dispatch({
         type: FETCHED_GAMES,
-        payload: response.data
+        payload: response.data,
       })
     })
     .catch((error) => {
