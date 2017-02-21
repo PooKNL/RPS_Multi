@@ -23,7 +23,7 @@ class GameLobby extends PureComponent {
 
   componentDidMount() {
   this.props.fetchGames()
-  // this.props.subscribeToGamesService()
+  this.props.subscribeToGamesService()
 
   }
 

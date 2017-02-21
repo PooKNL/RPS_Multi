@@ -1,5 +1,7 @@
 'use strict';
 
+const defaults = {};
+
 module.exports = function(options) {
   options = Object.assign({}, defaults, options);
 
