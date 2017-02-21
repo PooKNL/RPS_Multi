@@ -16,7 +16,9 @@ const choiceSchema = new Schema({
 
 const playerSchema = new Schema({
   userId: { type: Schema.Types.ObjectId, ref: 'user' },
-  playerChoice: { type: String, required: false},
+  name: { type: Schema.Types.ObjectId, ref: 'user' },
+  Choice1: { type: String, required: false},
+  Choice2: { type: String, required: false},
   isWinner: { type: Boolean, required: false}
 });
 

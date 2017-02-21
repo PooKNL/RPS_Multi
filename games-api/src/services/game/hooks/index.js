@@ -45,7 +45,7 @@ exports.before = {
 };
 
 exports.after = {
-  all: [checkWinner],
+  all: [],
   find: [],
   get: [],
   create: [],
