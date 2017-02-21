@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 import fetchGames from '../actions/games/fetch'
 import Title from '../components/Title'
 import './GameSession.sass'
+import PaperPic from '../images/paper.png'
+import RockPic from '../images/rock.png'
+import ScissorsPic from '../images/scissors.png'
 
 export class GameSession extends PureComponent {
 
@@ -16,26 +19,14 @@ export class GameSession extends PureComponent {
         </div>
         <div className="game-container">
           <div className="image-container-1">
-            <img className="rock">
-
-            </img>
-            <img className="paper">
-
-            </img>
-            <img className="scissors">
-
-            </img>
+            <img className="rock" src={ RockPic }></img>
+            <img className="paper" src={ PaperPic }></img>
+            <img className="scissors" src={ ScissorsPic }></img>
           </div>
           <div className="image-container-2">
-            <img className="rock">
-
-            </img>
-            <img className="paper">
-
-            </img>
-            <img className="scissors">
-
-            </img>
+            <img className="rock" src={ RockPic }></img>
+            <img className="paper" src={ PaperPic }></img>
+            <img className="scissors" src={ ScissorsPic }></img>
           </div>
         </div>
       </div>
