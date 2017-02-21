@@ -13,12 +13,13 @@ export class GameItem extends PureComponent {
     this.props.joinGame(this.props._id)
   }
 
+
   render() {
-    const { game } = this.props;
+       const { currentUser, createdBy } = this.props
 
     return (
       <li>
-        <p> { this.props.title } created by  </p>
+        <p> { this.props.title } created by   </p>
         <button className="primary" onClick={this.handleClick.bind(this)}>Join game</button>
       </li>
       )
@@ -28,5 +29,3 @@ export class GameItem extends PureComponent {
 
 const mapStateToProps = ({ currentUser }) => ({ currentUser })
 export default connect(mapStateToProps, { joinGame })(GameItem)
-
-// { createdBy.name }

@@ -22,13 +22,15 @@ const playerSchema = new Schema({
 
 const gameSchema = new Schema({
   title: { type: String, required: true},
-  players:[playerSchema],
+  playerOne: playerSchema,
+  playerTwo: playerSchema,
   choice:[choiceSchema],
   winner: { type: Boolean, required: false },
   readyToPlay: { type: Boolean, required: false},
   inSession: { type: Boolean, required: false},
   createdAt: { type: Date, 'default': Date.now },
-  updatedAt: { type: Date, 'default': Date.now }
+  updatedAt: { type: Date, 'default': Date.now },
+  userId: { type: Schema.Types.ObjectId, ref: 'user' }
 });
 
 const gameModel = mongoose.model('game', gameSchema);
