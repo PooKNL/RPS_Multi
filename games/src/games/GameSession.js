@@ -12,10 +12,9 @@ import subscribeToGamesService from '../actions/games/subscribe'
 export class GameSession extends PureComponent {
 
 
-  handleClick() {
+  handleClick(e) {
+    e.preventDefault();
     console.log("click input");
-    this.props.updatedGame(this.refs.choice1.value)
-
   }
 
   render() {
