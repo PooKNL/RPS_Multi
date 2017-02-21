@@ -14,5 +14,10 @@ module.exports = function(options) {
       userId: user._id,
     }];
 
+    hook.data.playerOne = {
+      userId: user._id,
+      name: user._id,
+      }
+
   };
 };
