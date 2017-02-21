@@ -12,24 +12,20 @@ export default (title) => {
   return (dispatch) => {
     dispatch(loading(true))
 
-    // create game in database
     api.app.authenticate()
     .then(() => {
 
-      games.create({ title: title }) // with what?
+      games.create({ title: title })
 
-      // then => go to reducer to change state
       .then((response) => {
         dispatch(loadSuccess())
-        // history.push to the created game
+
       })
 
-      // catch => there was an error
       .catch((error) => {
         dispatch(loadError(error))
       })
 
-      // then => clean up loading spinner
       .then(() => {
         dispatch(loading(false))
       })
