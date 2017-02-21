@@ -14,23 +14,31 @@ export class GameSession extends PureComponent {
   render() {
 
     return(
-      <Paper className="gamesession" zDepth={5}>
-        <div className="gamesession-title">
-          <Title content="Rock, Paper, Scissors" />
-        </div>
-        <Paper className="game-container" zDepth={5}>
-          <Paper className="image-container-1" zDepth={5}>
-            <img className="rock" src={ RockPic }></img>
-            <img className="paper" src={ PaperPic }></img>
-            <img className="scissors" src={ ScissorsPic }></img>
-          </Paper>
-          <Paper className="image-container-2" zDepth={5}>
-            <img className="rock" src={ RockPic }></img>
-            <img className="paper" src={ PaperPic }></img>
-            <img className="scissors" src={ ScissorsPic }></img>
+        <Paper className="gamesession" zDepth={5}>
+          <div className="gamesession-title">
+            <Title content="Rock, Paper, Scissors" />
+          </div>
+          <Paper className="game-container" zDepth={5}>
+            <Paper className="image-container-1" zDepth={5}>
+              <img className="rock" src={ RockPic }></img>
+              <img className="paper" src={ PaperPic }></img>
+              <img className="scissors" src={ ScissorsPic }></img>
+            </Paper>
+            <Paper className="image-container-2" zDepth={5}>
+              <img className="rock" src={ RockPic }></img>
+              <img className="paper" src={ PaperPic }></img>
+              <img className="scissors" src={ ScissorsPic }></img>
+            </Paper>
+            <form>
+              <input type="text" ref="choice-1"></input>
+              <button>Player one choice</button>
+            </form>
+            <form>
+            <input type="text" ref="choice-2"></input>
+            <button>Player two choice</button>
+          </form>
           </Paper>
         </Paper>
-      </Paper>
     )
   }
 }
