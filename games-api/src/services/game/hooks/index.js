@@ -8,6 +8,7 @@ const common = require('feathers-hooks-common');
 // before hook: assign authorId to the _id of the currently logged in user.
 const createGame = require('./create-game');
 const joinGame = require('./join-game');
+const checkWinner = require('./check-winner');
 
 // after hook: look up the user with the matching authorId in the users service and add it as 'author'
 
@@ -44,7 +45,7 @@ exports.before = {
 };
 
 exports.after = {
-  all: [],
+  all: [checkWinner],
   find: [],
   get: [],
   create: [],
