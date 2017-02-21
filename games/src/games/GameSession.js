@@ -7,12 +7,18 @@ import './GameSession.sass'
 import PaperPic from '../images/paper.png'
 import RockPic from '../images/rock.png'
 import ScissorsPic from '../images/scissors.png'
+import subscribeToGamesService from '../actions/games/subscribe'
 
 export class GameSession extends PureComponent {
 
 
-  render() {
+  handleClick() {
+    console.log("click input");
+    this.props.updatedGame(this.refs.choice1.value)
 
+  }
+
+  render() {
     return(
         <Paper className="gamesession" zDepth={5}>
           <div className="gamesession-title">
@@ -30,11 +36,11 @@ export class GameSession extends PureComponent {
               <img className="scissors" src={ ScissorsPic }></img>
             </Paper>
             <form>
-              <input type="text" ref="choice-1"></input>
-              <button>Player one choice</button>
+              <input type="text" ref="choice1"></input>
+              <button onClick={this.handleClick.bind(this)}>Player one choice</button>
             </form>
             <form>
-            <input type="text" ref="choice-2"></input>
+            <input type="text" ref="choice2"></input>
             <button>Player two choice</button>
           </form>
           </Paper>
