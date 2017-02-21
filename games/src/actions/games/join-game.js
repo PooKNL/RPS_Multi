@@ -1,17 +1,39 @@
+
+import loadError from '../load/error'
+import loadSuccess from '../load/success'
+import loading from '../loading'
+import {history} from '../../store'
 import API from '../../middleware/api'
+
+export const JOINED_GAME = 'JOINED_GAME'
+
 const api = new API()
 const games = api.service('games')
 
-export default (games, user) => {
-  const joined = game.joinedBy.filter((join) => (join === user._id)).length > 0
-  api.app.authenticate()
-    .then(() => {
-      games.patch(game._id, { join: !joined })
-    })
-    .catch((error) => {
-      console.error(error)
-      // e.g. redirect to sign in!
-    })
+export default(gameId) => {
+  console.log('Loading.....Loading...', gameId)
+  return(dispatch) => {
+    dispatch(loading(true))
 
-  return { type: 'JOINED_GAME' }
+    api.app.authenticate()
+
+    .then(() => {
+      console.log('authenticated', gameId)
+      games.patch(gameId, { joinType: 'join' })
+      .then((response) => {
+        console.log('this worked as well')
+        dispatch(loadSuccess())
+        dispatch({
+          type: JOINED_GAME,
+          payload: response,
+        })
+      })
+      .catch((error) => {
+        dispatch(loadError(error))
+      })
+      .then(() => {
+        dispatch(loading(false))
+      })
+    })
+  }
 }

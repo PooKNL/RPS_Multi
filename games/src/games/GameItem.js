@@ -9,7 +9,7 @@ import './GameItem.sass'
 export class GameItem extends PureComponent {
 
 JoinButton() {
-    const { _id, likedBy, currentUser } = this.props
+    const { _id, joinedBy, currentUser } = this.props
     if (!currentUser) return
 
     console.log('CLICK (GameItem)', _id)
