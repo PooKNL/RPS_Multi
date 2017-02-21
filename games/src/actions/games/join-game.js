@@ -6,7 +6,7 @@ export default (games, user) => {
   const joined = game.joinedBy.filter((join) => (join === user._id)).length > 0
   api.app.authenticate()
     .then(() => {
-      games.patch(game._id, { joined: !joined })
+      games.patch(game._id, { join: !joined })
     })
     .catch((error) => {
       console.error(error)
