@@ -10,13 +10,11 @@ module.exports = function(options){
             name: hook.params.user.name,
             userId: hook.params.user._id
           };
-          console.log(hook.params.user)
-          console.log("#####################")
-          console.log("username:", hook.params.user.name, "user id", hook.params.user._id)
+
           hook.data = data;
         }
         else {
-          console.log('player already part of game or game already full')
+
         }
     })
   }
